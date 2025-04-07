@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>PortfolioWM</title>
+</head>
+<body>
+    <!-- Barre d'état (comme i3status ou polybar) -->
+    <div class="statusbar">
+        <div class="workspaces">
+            <div class="workspace active">1: Accueil</div>
+            <div class="workspace">2: Projets</div>
+            <div class="workspace">3: Compétences</div>
+            <div class="workspace">4: Contact</div>
+        </div>
+        <div class="status-items">
+            <div class="status-item"><a href="https://github.com/JimsonLa" target="_blank"><i class="bi bi-github"></i> github</a></div>
+            <div class="status-item"><a href="mailto:jlasselin.pro@gmail.com"><i class="bi bi-envelope"></i> jlasselin.pro@gmail.com</a></div>
+            <div class="status-item"><i class="bi bi-cpu"></i> Développeur Web</div>
+            <div class="status-item"><i class="bi bi-calendar"></i> <span id="current-date"></span></div>
+        </div>
+    </div>
+
+    <!-- Conteneur principal -->
+    <div class="workspace-container">
+        <!-- Fenêtre À propos -->
+        <div class="window active">
+            <div class="window-header">
+                <div class="window-title">
+                    <i class="bi bi-person-circle"></i> about_me.md
+                </div>
+                <div class="window-controls">
+                    <span class="window-minimize"></span>
+                    <span class="window-maximize"></span>
+                    <span class="window-close"></span>
+                </div>
+            </div>
+            <div class="window-content">
+                <h2>Jimmy Lasselin</h2>
+                <p>Développeur web passionné par les interfaces modernes et les expériences utilisateur innovantes.</p>
+                <div class="terminal-output">
+                    <div class="terminal-prompt">whoami</div>
+                    <div class="terminal-result">Développeur Web avec plus de 5 ans d'expérience dans la création d'applications web responsives et accessibles.</div>
+                    <div class="terminal-prompt">ls -la skills/</div>
+                    <div class="terminal-result">
+                        <span class="html-tag">HTML5</span>
+                        <span class="css-tag">CSS3</span>
+                        <span class="js-tag">JavaScript</span>
+                        <span class="bootstrap-tag">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fenêtre Projets -->
+        <div class="window">
+            <div class="window-header">
+                <div class="window-title">
+                    <i class="bi bi-code-square"></i> projects.js
+                </div>
+                <div class="window-controls">
+                    <span class="window-minimize"></span>
+                    <span class="window-maximize"></span>
+                    <span class="window-close"></span>
+                </div>
+            </div>
+            <div class="window-content">
+                <h3>Projets récents</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h4>Plateforme E-commerce</h4>
+                        <p>Une solution e-commerce moderne avec React et Node.js</p>
+                        <a href="#" class="btn btn-primary btn-sm">Voir le projet</a>
+                    </div>
+                    <div class="project-card">
+                        <h4>Application de gestion de tâches</h4>
+                        <p>Outil de productivité conçu avec Vue.js et Firebase</p>
+                        <a href="#" class="btn btn-primary btn-sm">Voir le projet</a>
+                    </div>
+                    <div class="project-card">
+                        <h4>Modèle de portfolio</h4>
+                        <p>Modèle de portfolio personnalisable pour développeurs</p>
+                        <a href="#" class="btn btn-primary btn-sm">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fenêtre Compétences -->
+        <div class="window">
+            <div class="window-header">
+                <div class="window-title">
+                    <i class="bi bi-tools"></i> skills.json
+                </div>
+                <div class="window-controls">
+                    <span class="window-minimize"></span>
+                    <span class="window-maximize"></span>
+                    <span class="window-close"></span>
+                </div>
+            </div>
+            <div class="window-content">
+                <h3>Compétences techniques</h3>
+                <pre><code>{
+  "frontend": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Vue.js"],
+  "backend": ["Node.js", "PHP"],
+  "outils": ["Git", "Figma"],
+  "langages": ["JavaScript", "PHP"]
+}</code></pre>
+                <h4>Maîtrise des technologies</h4>
+                <div class="skills-list">
+                    <div class="skill-tag">HTML5</div>
+                    <div class="skill-tag">CSS3</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">Bootstrap</div>
+                    <div class="skill-tag">Node.js</div>
+                    <div class="skill-tag">Git</div>
+                    <div class="skill-tag">Design Responsive</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fenêtre Contact -->
+        <div class="window">
+            <div class="window-header">
+                <div class="window-title">
+                    <i class="bi bi-chat-left-text"></i> contact.sh
+                </div>
+                <div class="window-controls">
+                    <span class="window-minimize"></span>
+                    <span class="window-maximize"></span>
+                    <span class="window-close"></span>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="terminal-output">
+                    <div class="terminal-prompt">cat contact_info.txt</div>
+                    <div class="terminal-result">
+                        <p><a href="mailto:jlasselin.pro@gmail.com"><i class="bi bi-envelope"></i> jlasselin.pro@gmail.com</a></p>
+                        <p><a href="https://github.com/JimsonLa" target="_blank"><i class="bi bi-github"></i> github.com/JimsonLa</a></p>
+                    </div>
+                    <div class="terminal-prompt">./send_message.sh</div>
+                    <div class="terminal-result">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nom</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Envoyer un message</button>
+                            <div id="statusMessage" class="mt-3" style="display: none;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Afficher la date actuelle
+        const now = new Date();
+        document.getElementById('current-date').textContent = now.toLocaleDateString('fr-FR');
+
+        // Simuler l'interaction avec les fenêtres
+        document.querySelectorAll('.window').forEach(window => {
+            window.addEventListener('click', () => {
+                document.querySelectorAll('.window').forEach(w => {
+                    w.classList.remove('active');
+                });
+                window.classList.add('active');
+            });
+        });
+
+        // Assignation des espaces de travail aux fenêtres
+        const workspaceWindows = {
+            '1: Accueil': 0,      // index de la fenêtre about_me.md
+            '2: Projets': 1,      // index de la fenêtre projects.js
+            '3: Compétences': 2,  // index de la fenêtre skills.json
+            '4: Contact': 3       // index de la fenêtre contact.sh
+        };
+
+        // Simuler l'interaction avec les espaces de travail
+        document.querySelectorAll('.workspace').forEach(workspace => {
+            workspace.addEventListener('click', () => {
+                // Activer l'espace de travail
+                document.querySelectorAll('.workspace').forEach(w => {
+                    w.classList.remove('active');
+                });
+                workspace.classList.add('active');
+                
+                // Activer la fenêtre correspondante
+                const windowIndex = workspaceWindows[workspace.textContent];
+                const windows = document.querySelectorAll('.window');
+                windows.forEach(w => {
+                    w.classList.remove('active');
+                });
+                
+                if (windowIndex !== undefined && windows[windowIndex]) {
+                    windows[windowIndex].classList.add('active');
+                    // Faire défiler vers la fenêtre active
+                    windows[windowIndex].scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Gestion du formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            
+            // Préparation du contenu de l'email
+            const subject = `Message de ${name} via Portfolio`;
+            const mailtoBody = `Nom: ${name}`;
+            
+            // Création de l'URL mailto
+            const mailtoLink = `mailto:jlasselin.pro@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailtoBody)}`;
+            
+            // Tentative d'ouverture du client mail
+            const mailWindow = window.open(mailtoLink, '_blank');
+            
+            // Affichage du message de statut
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.style.display = 'block';
+            
+            if (mailWindow) {
+                statusMessage.textContent = 'Votre client de messagerie a été ouvert avec votre message. Cliquez sur envoyer dans votre messagerie pour finaliser.';
+                statusMessage.style.color = 'var(--green)';
+                
+                // Réinitialisation du formulaire
+                this.reset();
+            } else {
+                statusMessage.textContent = 'Impossible d\'ouvrir votre client de messagerie. Veuillez contacter directement à jlasselin.pro@gmail.com';
+                statusMessage.style.color = 'var(--red)';
+            }
+        });
+    </script>
+</body>
+</html>

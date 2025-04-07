@@ -1,0 +1,284 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Palette Gruvbox */
+    --bg-dark: #282828;
+    --bg-medium: #3c3836;
+    --bg-light: #504945;
+    --fg: #ebdbb2;
+    --red: #cc241d;
+    --green: #98971a;
+    --yellow: #d79921;
+    --blue: #458588;
+    --purple: #b16286;
+    --aqua: #689d6a;
+    --gray: #a89984;
+    --orange: #d65d0e;
+    
+    /* Variables de mise en page */
+    --border-radius: 4px;
+    --window-gap: 10px;
+    --statusbar-height: 25px;
+    --window-border: 2px;
+}
+
+body {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    background-color: var(--bg-dark);
+    color: var(--fg);
+    padding: var(--window-gap);
+    height: 100vh;
+    display: grid;
+    grid-template-rows: var(--statusbar-height) 1fr;
+    gap: var(--window-gap);
+}
+
+/* Barre de statut (comme polybar, i3bar) */
+.statusbar {
+    background-color: var(--bg-medium);
+    color: var(--fg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: var(--border-radius);
+    font-size: 12px;
+}
+
+.workspaces {
+    display: flex;
+    gap: 10px;
+}
+
+.workspace {
+    padding: 2px 8px;
+    cursor: pointer;
+}
+
+.workspace.active {
+    background-color: var(--blue);
+    border-radius: var(--border-radius);
+}
+
+.status-items {
+    display: flex;
+    gap: 15px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Conteneur principal - similaire à un écran avec des fenêtres en tuile */
+.workspace-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    gap: var(--window-gap);
+    height: 100%;
+}
+
+/* Fenêtres (sections du portfolio) */
+.window {
+    background-color: var(--bg-medium);
+    border: var(--window-border) solid var(--bg-light);
+    border-radius: var(--border-radius);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.window.active {
+    border-color: var(--blue);
+}
+
+.window-header {
+    background-color: var(--bg-light);
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+.window-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.window-controls span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.window-close {
+    background-color: var(--red);
+}
+
+.window-maximize {
+    background-color: var(--green);
+}
+
+.window-minimize {
+    background-color: var(--yellow);
+}
+
+.window-content {
+    padding: 15px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Styling pour les sections du portfolio */
+.terminal-output {
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1.5;
+}
+
+.terminal-prompt::before {
+    content: "$ ";
+    color: var(--green);
+}
+
+.terminal-comment {
+    color: var(--gray);
+}
+
+.terminal-command {
+    color: var(--aqua);
+}
+
+.terminal-result {
+    color: var(--fg);
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+/* Formatage de code */
+code, pre {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: var(--bg-dark);
+    border-radius: var(--border-radius);
+}
+
+pre {
+    padding: 10px;
+    overflow-x: auto;
+}
+
+/* Liens */
+a {
+    color: var(--blue);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--aqua);
+}
+
+/* Boutons */
+.btn {
+    background-color: var(--bg-light);
+    color: var(--fg);
+    border: none;
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--blue);
+}
+
+.btn-primary {
+    background-color: var(--blue);
+}
+
+.btn-primary:hover {
+    background-color: var(--aqua);
+}
+
+/* Grille de projets */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.project-card {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Compétences */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background-color: var(--bg-light);
+    color: var(--fg);
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+}
+
+.html-tag {
+    color: var(--orange);
+}
+
+.css-tag {
+    color: var(--blue);
+}
+
+.js-tag {
+    color: var(--yellow);
+}
+
+.bootstrap-tag {
+    color: var(--purple);
+}
+
+/* Requêtes média */
+@media (max-width: 768px) {
+    .workspace-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .statusbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+    
+    .workspaces, .status-items {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
